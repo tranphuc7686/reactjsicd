@@ -19,11 +19,50 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>Assignment</title>
+    <script type="text/javascript" src="%PUBLIC_URL%/lib/react.development.js"> </script>
+    <script type="text/javascript" src="%PUBLIC_URL%/lib/react-dom.development.js"> </script>
+    <script type="text/javascript" src="%PUBLIC_URL%/lib/browser.min.js"> </script>
+
+    <link rel="stylesheet" href="%PUBLIC_URL%/lib/bootstrap.min.css">
+    <script src="%PUBLIC_URL%/lib/jquery.min.js"></script>
+    <script src="%PUBLIC_URL%/lib/popper.min.js"></script>
+    <script src="%PUBLIC_URL%/lib/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="%PUBLIC_URL%/css/site.css" />
+
+
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
+     <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color : #4CAF50 !important;">
+     <!-- Brand -->
+     <a class="navbar-brand" href="/">Home</a>
+
+     <!-- Toggler/collapsibe Button -->
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+
+     <!-- Navbar links -->
+     <div class="collapse navbar-collapse" id="collapsibleNavbar">
+       <ul class="navbar-nav">
+         <li class="nav-item">
+           <a class="nav-link" href="#"><span class="glyphicon glyphicon-user">Sign Up</span></a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href='<spring:url value="/signout"/>'>Logout</a>
+         </li>
+
+       </ul>
+     </div>
+   </nav>
+    </header>
+   <div class="container">
+  <main role="main" class="pb-3">
+    <div id="root">
+  </main>
+</div>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -34,5 +73,8 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+	<footer class="border-top footer text-center">
+  <span >&copy; 2019 - Assignment - Privacy</span>
+</footer>
   </body>
 </html>
