@@ -10,7 +10,9 @@ const divStyle = {
   listStyleType: "none"
 };
 class App extends React.Component {
-
+  constructor() {
+        super();
+      }
   state = {
     posts: []
   }
@@ -53,6 +55,7 @@ class App extends React.Component {
             this.setState({ posts });
               });
   }
+
 
   render() {
     if (sessionStorage.getItem('userData')== 'undefined' || sessionStorage.getItem('userData') == null) {

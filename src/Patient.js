@@ -26,6 +26,10 @@ class Patient extends React.Component {
       }
 
 submit(){
+  if(this.state.name == "" || this.state.birthdate==""||this.state.gender ==""|| this.state.anddress==""){
+    alert("Some Input is Empty !!");
+    return;
+  }
 axios({
    method: 'post',
    url: 'http://localhost:8080/patient',

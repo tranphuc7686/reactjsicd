@@ -68,7 +68,7 @@ class Login extends React.Component {
 
     return (
       <div className="main" id="Body">
-       <div className="medium-5 columns left">
+       <div className="medium-5 columns left mainLogin">
        <p class="sign" align="center">Sign in</p>
        <input class="un " name="username" type="text" align="center" placeholder="Username" onChange={this.onChange}></input>
        <input class="pass" name="password" type="password" align="center" placeholder="Password"  onChange={this.onChange}></input>

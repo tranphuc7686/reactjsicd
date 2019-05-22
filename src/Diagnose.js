@@ -49,6 +49,10 @@ class Diagnose extends React.Component {
       this.setState({icdSelected : e.target.value});
     }
     submitVisit(){
+      if(this.state.problems == "" || this.state.icdSelected==""){
+        alert("Some Input is Empty !!");
+        return;
+      }
       var problems = this.state.problems;
       var diagnosis_id = this.state.icdSelected;
       var patient_id = this.props.match.params.id;

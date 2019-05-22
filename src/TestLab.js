@@ -48,14 +48,21 @@ class Testlab extends React.Component {
       this.setState({icdSelected : e.target.value});
     }
     submitTestlab(){
+      if(this.state.datetime == "" || this.state.icdSelected==""){
+        alert("Some Input is Empty !!");
+        return;
+      }
       var medicalservice_id = this.state.icdSelected;
       var patient_id = this.props.match.params.id;
-      let date = this.state.datetime;
-      let time =  this.state.datetime;
-    
+      let current_datetime = new Date(this.state.datetime);
+      let formatted_date = current_datetime.getFullYear() + "-" + (current_datetime.getMonth() + 1) + "-" + current_datetime.getDate();
+      let formatted_time = current_datetime.getHours() + ":" + current_datetime.getMinutes() + ":" + current_datetime.getSeconds();
+      let date = formatted_date;
+      let time =  formatted_time;
+
       axios({
          method: 'post',
-         url: 'http://localhost:8080/visit',
+         url: 'http://localhost:8080/medicalServive',
          headers: {'Authorization': sessionStorage.getItem('userData')},
          data: {
            'date':date,

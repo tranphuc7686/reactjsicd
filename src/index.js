@@ -10,6 +10,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 import Login from './Login';
 import Patient from './Patient';
+import Logout from './Logout';
 
 
 ReactDOM.render(
@@ -17,6 +18,7 @@ ReactDOM.render(
   <Switch>
     <Route path="/" exact render={()=><App subreddit="patients"/>}></Route>
     <Route path="/login"   component={Login}></Route>
+    <Route path="/logout"   component={Logout}></Route>
     <Route path="/patient"   component={Patient}></Route>
     <Route path="/hisvisit/:id"   component={Visit}></Route>
     <Route path="/diagnose/:id"  component={Diagnose}></Route>
