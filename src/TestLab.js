@@ -89,8 +89,6 @@ class Testlab extends React.Component {
       <div className="mainPatient">
         <input type="hidden" name="date" id="todayDate"></input>
         <input type="hidden" name="time" id="todayTime"></input>
-        <label ><b>Name of Patient : </b></label>
-        <label id="namePatient"><b>Bệnh nhân</b></label>
         <div className="">
         <div>
               <label><b>Choose a Medical Servives from this list : </b>
