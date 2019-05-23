@@ -12,7 +12,7 @@ class Patient extends React.Component {
        name: '',
        anddress: '',
        brithdate: '',
-       gender: ''
+       gender: '1'
       };
 
       this.onChange = this.onChange.bind(this);
@@ -26,7 +26,7 @@ class Patient extends React.Component {
       }
 
 submit(){
-  if(this.state.name == "" || this.state.birthdate==""||this.state.gender ==""|| this.state.anddress==""){
+  if(this.state.name == "" || this.state.birthdate==""|| this.state.gender ==""|| this.state.anddress==""){
     alert("Some Input is Empty !!");
     return;
   }
@@ -68,7 +68,7 @@ axios({
         <input class="pass" type="date" name="birthdate" placeholder="Birthdate"  onChange={this.onChange}></input>
   <br></br>
         <label>Gender : </label>
-        <select className="custom-select">
+        <select onChange={this.onChange} name="gender"className="custom-select">
     <option value="1">Male</option>
     <option value="2">Female</option>
   </select>

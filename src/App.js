@@ -12,6 +12,7 @@ const divStyle = {
 class App extends React.Component {
   constructor() {
         super();
+          this.deletePatient = this.deletePatient.bind(this);
       }
   state = {
     posts: []
@@ -35,6 +36,10 @@ class App extends React.Component {
         this.props.history.push(`/patient/`);
         break;
       }
+      case 5:{
+        this.deletePatient(id);
+        break;
+      }
         break;
       default:
 
@@ -55,7 +60,18 @@ class App extends React.Component {
             this.setState({ posts });
               });
   }
-
+deletePatient(id){
+  let self = this;
+  axios({
+      method: 'delete',
+      url: `http://localhost:8080/patient/id/`+id,
+      headers: {'Authorization': sessionStorage.getItem('userData')}
+      })
+      .then(response => { //This is an arrow function
+          alert(" Delete patient success !! ");
+            window.location.reload(); 
+          });
+}
 
   render() {
     if (sessionStorage.getItem('userData')== 'undefined' || sessionStorage.getItem('userData') == null) {
@@ -75,6 +91,8 @@ class App extends React.Component {
                 <button className="buttonDialog mainBtn" onClick={this.redirectToTarget(1)} value={post.id}>History Visit</button>
                 <button className="buttonDialog mainBtn" onClick={this.redirectToTarget(2)} value={post.id}>Diagnose</button>
                 <button className="buttonDialog mainBtn" onClick={this.redirectToTarget(3)} value={post.id}>Test</button>
+                <button className="buttonDialog mainBtn" onClick={this.redirectToTarget(5)} value={post.id}>Delete this patient</button>
+
               </li>
             </ul>
 

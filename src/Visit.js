@@ -14,7 +14,10 @@ const divStyle = {
   listStyleType: "none"
 };
 class Visit extends React.Component {
-
+  constructor(){
+    super();
+    this.deleteVist =this.deleteVist.bind(this);
+  }
   state = {
     visits: []
   }
@@ -35,7 +38,26 @@ class Visit extends React.Component {
               });
 
   }
+deleteVist(e){
+  const id = e.target.value;
+  let self = this;
+  axios({
+      method: 'delete',
+      url: `http://localhost:8080/visit/`+id,
+      headers: {'Authorization': sessionStorage.getItem('userData')}
+      })
+      .then(response => { //This is an arrow function
+          alert(" Delete visit success !! ");
+            window.location.reload();
+          });
+}
+getValueVisitType(type){
+  if(type != 0){
+    return "Test Lab";
+  }
+  return "Diagnose ICD";
 
+}
   render() {
     if(this.state.visits.length <= 0){
       return(
@@ -47,13 +69,17 @@ class Visit extends React.Component {
         </div>
       );
     }
+
     return (
-      <div>
+      <div className="container">
         <h1>History Visit of patient</h1>
         <ul>
           {this.state.visits.map(visit =>
             <div>
-            <li key={visit.id}>{visit.icdName}</li>
+
+            <li key={visit.id}><b>{this.getValueVisitType(visit.typeVisit)}</b> : {visit.icdName}{visit.medicalServiceName}</li>
+
+
             <ul style={divStyle}>
               <li>
                 Problems :  {visit.problems}
@@ -65,7 +91,8 @@ class Visit extends React.Component {
                 Time : {visit.time}
               </li>
             </ul>
-
+<button className="buttonDialog mainBtn" onClick={this.deleteVist} value={visit.idVisit}>Delete this visit</button>
+<button className="buttonDialog mainBtn" onClick="" value="">Edit this visit</button>
             </div>
           )}
         </ul>
