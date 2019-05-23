@@ -17,6 +17,7 @@ class Visit extends React.Component {
   constructor(){
     super();
     this.deleteVist =this.deleteVist.bind(this);
+      this.update =this.update.bind(this);
   }
   state = {
     visits: []
@@ -58,6 +59,16 @@ getValueVisitType(type){
   return "Diagnose ICD";
 
 }
+update = type => e => {
+  const id = e.target.value;
+  if(type == 0){
+
+  return   this.props.history.push(`/diagnoseupdate/`+id);
+  }
+  return this.props.history.push(`/testlabupdate/`+id);
+}
+
+
   render() {
     if(this.state.visits.length <= 0){
       return(
@@ -92,7 +103,7 @@ getValueVisitType(type){
               </li>
             </ul>
 <button className="buttonDialog mainBtn" onClick={this.deleteVist} value={visit.idVisit}>Delete this visit</button>
-<button className="buttonDialog mainBtn" onClick="" value="">Edit this visit</button>
+<button className="buttonDialog mainBtn" onClick={this.update(visit.typeVisit)} value={visit.idVisit}>Edit this visit</button>
             </div>
           )}
         </ul>

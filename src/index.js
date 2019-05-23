@@ -11,6 +11,8 @@ import { BrowserRouter as Router,Route,Switch } from 'react-router-dom';
 import Login from './Login';
 import Patient from './Patient';
 import Logout from './Logout';
+import DiagnoseUpdate from './DiagnoseUpdate';
+import TestLabUpdate from './TestLabUpdate';
 
 
 ReactDOM.render(
@@ -23,6 +25,8 @@ ReactDOM.render(
     <Route path="/hisvisit/:id"   component={Visit}></Route>
     <Route path="/diagnose/:id"  component={Diagnose}></Route>
     <Route path="/testlab/:id"  component={TestLab}></Route>
+    <Route path="/diagnoseupdate/:id"  component={DiagnoseUpdate}></Route>
+    <Route path="/testlabupdate/:id"  component={TestLabUpdate}></Route>
     <Route component={NotFound}></Route>
 
   </Switch>
