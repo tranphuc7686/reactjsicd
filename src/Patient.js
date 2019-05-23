@@ -32,7 +32,7 @@ submit(){
   }
 axios({
    method: 'post',
-   url: 'http://localhost:8080/patient',
+   url: 'http://149.56.14.30:8080/patient',
    headers: {'Authorization': sessionStorage.getItem('userData')},
    data: {
      'name': this.state.name,

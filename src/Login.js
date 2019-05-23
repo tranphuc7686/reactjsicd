@@ -45,7 +45,7 @@ class Login extends React.Component {
 
     axios({
         method: 'post',
-        url: 'http://localhost:8080/login',
+        url: 'http://149.56.14.30:8080/login',
         data: bodyFormData
         })
         .then(response => { //This is an arrow function

@@ -51,7 +51,7 @@ class App extends React.Component {
 
       axios({
           method: 'get',
-          url: `http://localhost:8080/${this.props.subreddit}`,
+          url: `http://149.56.14.30:8080/${this.props.subreddit}`,
           headers: {'Authorization': sessionStorage.getItem('userData')}
           })
           .then(response => { //This is an arrow function
@@ -64,12 +64,12 @@ deletePatient(id){
   let self = this;
   axios({
       method: 'delete',
-      url: `http://localhost:8080/patient/id/`+id,
+      url: `http://149.56.14.30:8080/patient/id/`+id,
       headers: {'Authorization': sessionStorage.getItem('userData')}
       })
       .then(response => { //This is an arrow function
           alert(" Delete patient success !! ");
-            window.location.reload(); 
+            window.location.reload();
           });
 }
 

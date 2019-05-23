@@ -31,7 +31,7 @@ class DiagnoseUpdate extends React.Component {
     //get diagnose by id
     axios({
         method: 'get',
-        url: `http://localhost:8080/find/visit/id/`+id,
+        url: `http://149.56.14.30:8080/find/visit/id/`+id,
         headers: {'Authorization': sessionStorage.getItem('userData')}
         })
         .then(response => { //This is an arrow function
@@ -42,7 +42,7 @@ class DiagnoseUpdate extends React.Component {
     //get list ICD
     axios({
         method: 'get',
-        url: `http://localhost:8080/icd`,
+        url: `http://149.56.14.30:8080/icd`,
         headers: {'Authorization': sessionStorage.getItem('userData')}
         })
         .then(response => { //This is an arrow function
@@ -74,7 +74,7 @@ class DiagnoseUpdate extends React.Component {
 
       axios({
          method: 'put',
-         url: 'http://localhost:8080/visit',
+         url: 'http://149.56.14.30:8080/visit',
          headers: {'Authorization': sessionStorage.getItem('userData')},
          data: {
            'diagnosis_id' : diagnosis_id,

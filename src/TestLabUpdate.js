@@ -30,7 +30,7 @@ class TestLabUpdate extends React.Component {
     //get list ICD
     axios({
         method: 'get',
-        url: `http://localhost:8080/medicalServives`,
+        url: `http://149.56.14.30:8080/medicalServives`,
         headers: {'Authorization': sessionStorage.getItem('userData')}
         })
         .then(response => { //This is an arrow function
@@ -63,7 +63,7 @@ class TestLabUpdate extends React.Component {
 
       axios({
          method: 'put',
-         url: 'http://localhost:8080/medicalServive',
+         url: 'http://149.56.14.30:8080/medicalServive',
          headers: {'Authorization': sessionStorage.getItem('userData')},
          data: {
            'date':date,

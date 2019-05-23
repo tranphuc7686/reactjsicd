@@ -29,7 +29,7 @@ class Visit extends React.Component {
 
       axios({
           method: 'get',
-          url: `http://localhost:8080/find/visit/`+id,
+          url: `http://149.56.14.30:8080/find/visit/`+id,
           headers: {'Authorization': sessionStorage.getItem('userData')}
           })
           .then(response => { //This is an arrow function
@@ -44,7 +44,7 @@ deleteVist(e){
   let self = this;
   axios({
       method: 'delete',
-      url: `http://localhost:8080/visit/`+id,
+      url: `http://149.56.14.30:8080/visit/`+id,
       headers: {'Authorization': sessionStorage.getItem('userData')}
       })
       .then(response => { //This is an arrow function
